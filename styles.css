@@ -1,0 +1,454 @@
+/* ช่องแสดงชื่อ blox ที่เลือกใน timer-container */
+.selected-blox-name {
+  font-size: 1.18rem;
+  color: #2d3a4b;
+  text-align: center;
+  margin: 8px auto 0 auto;
+  font-weight: 500;
+  background: none;
+  min-height: 24px;
+  width: 100%;
+}
+.set-actionmode-custom {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+  min-height: 64px;
+  align-items: flex-start;
+  margin-top: 8px;
+  width: 100%;
+  max-width: 540px;
+  box-sizing: border-box;
+}
+
+.custom-blox {
+  background: #f7f7f7;
+  border-radius: 12px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+  padding: 12px 16px 12px 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  min-width: 220px;
+  max-width: 320px;
+  position: relative;
+  margin-bottom: 8px;
+}
+.custom-blox input {
+  width: 48px;
+  font-size: 1rem;
+  padding: 4px 2px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-align: center;
+}
+.custom-blox .blox-name {
+  width: 80px;
+  font-size: 1rem;
+  padding: 4px 2px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-align: left;
+}
+.custom-blox .blox-remove {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  padding: 4px 10px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+.custom-blox .blox-add {
+  background: #2ecc40;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  padding: 4px 10px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+.settime-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(220, 220, 220, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+}
+.settime-dialog {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+  padding: 36px 32px 28px 32px;
+  min-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.settime-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 22px;
+  width: 100%;
+  justify-content: space-between;
+}
+.settime-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2d3a4b;
+  margin-right: 18px;
+}
+.settime-inputs {
+  display: flex;
+  align-items: center;
+}
+.settime-input {
+  width: 38px;
+  font-size: 1.3rem;
+  text-align: center;
+  padding: 6px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 0 4px;
+  background: #f7f7f7;
+}
+.settime-sep {
+  font-size: 1.3rem;
+  color: #888;
+  margin: 0 2px;
+}
+.settime-actionmode {
+  font-size: 1rem;
+  color: #aaa;
+  margin-left: 12px;
+}
+.mode-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(220, 220, 220, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.mode-dialog {
+  display: flex;
+  gap: 32px;
+  background: none;
+  border-radius: 20px;
+  box-shadow: none;
+}
+
+.mode-option {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  padding: 32px 28px 24px 28px;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.mode-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #2d3a4b;
+}
+.mode-desc {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 18px;
+  text-align: center;
+}
+.mode-select-btn {
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: #2ecc40;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 32px;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+  transition: background 0.2s;
+}
+.mode-select-btn:active {
+  filter: brightness(0.92);
+}
+
+/* display-panel styles remain for outer container */
+.display-panel {
+  font-size: 1.4rem;
+  font-weight: bold;
+  background: #e0e0e0;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  padding: 24px 20px;
+  margin: 16px auto 32px auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 180px;
+  max-width: 480px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/*การแสดงหน้าเลือก blox ใน Custom */
+.panelforCustom {
+  background: #e0e0e0;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  padding: 24px 20px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 180px;
+  max-width: 480px;
+  width: 100%;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.panelforCustom .custom-blox {
+  font-size: 0.98rem;
+  min-width: 80px;
+  max-width: 380px;
+  width: auto;
+  padding: 6px 8px;
+  margin-bottom: 4px;
+  height: 32px;
+  align-items: center;
+  flex-shrink: 1;
+  flex-grow: 0;
+  word-break: break-word;
+}
+
+/*การแสดงหน้าเลือก blox ใน Average */
+.panelforAverage {
+  background: #e0e0e0;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  padding: 24px 20px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 180px;
+  max-width: 480px;
+  width: 100%;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.panelforAverage .average-blox {
+  font-size: 0.98rem;
+  min-width: 80px;
+  max-width: 380px;
+  width: auto;
+  padding: 6px 8px;
+  margin-bottom: 4px;
+  height: 32px;
+  align-items: center;
+  flex-shrink: 1;
+  flex-grow: 0;
+  word-break: break-word;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+.panelforAverage .average-blox.selected {
+  background: #d1e7dd; /* สีเมื่อเลือก */
+}
+
+.action-btn {
+  flex: 1 1 0;
+  margin: 0 8px;
+  padding: 16px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background: #bbb;
+  cursor: pointer;
+  transition: background 0.2s;
+  outline: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+}
+
+.start-btn {
+  background: #2ecc40;
+}
+.stop-btn {
+  background: #e74c3c;
+}
+.op-btn {
+  background: #fff3cd;
+  color: #000;
+}
+.next-btn {
+  background: #fff;
+  color: #2d3a4b;
+}
+
+.action-btn:active {
+  filter: brightness(0.92);
+}
+
+.action-panel {
+  font-size: 2.1rem;
+  font-weight: bold;
+  background: #e0e0e0; /* ใช้สีเดียวพอ ไม่ต้องซ้ำ */
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  padding: 14px 20px; /* เพิ่ม padding ซ้าย-ขวาให้ไม่ชิด */
+  margin: 16px auto; /* auto จะทำให้ไม่เต็มความกว้างและอยู่ตรงกลาง */
+  display: flex;
+  align-items: center; /* จัดแกน Y ให้อยู่กลาง */
+  justify-content: center; /* จัดแกน X ให้อยู่กลาง */
+  min-height: 35px;
+  max-width: 480px; /* กำหนดความกว้างสูงสุด */
+  gap: 1;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+
+.timer-container {
+  max-width: 480px;
+  margin: 48px auto 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  padding: 32px 24px 24px 24px;
+  text-align: center;
+}
+
+.main-timer {
+  font-size: 3.2rem;
+  font-weight: bold;
+  color: #2d3a4b;
+  margin-bottom: 16px;
+  letter-spacing: 0.12em;
+}
+
+.elapsed-timer {
+  font-size: 1.4rem;
+  color: #555;
+  margin-bottom: 8px;
+  letter-spacing: 0.08em;
+}
+
+/* ✅ เพิ่มใหม่สำหรับแบบที่ 3 */
+.main-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-height: 300px; /* พื้นที่เนื้อหาที่ scroll ได้ */
+  overflow-y: auto;
+  padding-right: 4px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+.setactionmode-settime {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding-top: 8px;
+}
+
+/* ปรับแกนเวลาและเวลาหลัก */
+@media (max-width: 500px) {
+  .timer-container,
+  .main-timer {
+    font-size: 30px;
+  }
+}
+
+/* ปรับตัวอักษรเวลาหัวขอและชื่อ */
+@media (max-width: 500px) {
+  .selected-blox-name,
+  .elapsed-timer {
+    font-size: 15px;
+  }
+}
+
+/* ปรับระยะห่างในแต่ละปุ่ม */
+@media (max-width: 500px) {
+  .action-panel {
+    font-size: 15px;
+  }
+}
+
+/* ปรับปุ่มต่างๆ */
+@media (max-width: 500px) {
+  .start-btn,
+  .stop-btn,
+  .op-btn,
+  .next-btn {
+    font-size: 13px;
+    padding: 7px 7px; /* แกน ซ้าย-ขวา */
+    padding-top: 15px; /* สูงขึ้นด้านบน */
+    padding-bottom: 15px; /* สูงขึ้นด้านล่าง */
+  }
+}
+
+/* ปรับตัวอักษรblox */
+@media (max-width: 500px) {
+  .panelforCustom .custom-blox,
+  .panelforAverage .average-blox {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .panelforCustom,
+  .panelforAverage {
+    padding: 14px 10px;
+  }
+}
+
+/* ✅ เพิ่ม media query สำหรับ mode-dialog บนหน้าจอเล็ก */
+@media (max-width: 500px) {
+  .mode-dialog {
+    flex-direction: column; /* จากแนวนอน → แนวตั้ง */
+    align-items: center; /* จัดกึ่งกลาง */
+  }
+  .mode-option {
+    width: 100%; /* ตัวเลือกเต็ม container */
+    max-width: 300px;
+    margin-bottom: 16px; /* เว้นระยะด้านล่าง */
+  }
+  .mode-option:last-child {
+    margin-bottom: 0; /* ตัวสุดท้ายไม่ต้องเว้น */
+  }
+}
