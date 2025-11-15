@@ -131,6 +131,7 @@
   color: #aaa;
   margin-left: 12px;
 }
+
 .mode-overlay {
   position: fixed;
   top: 0;
@@ -209,7 +210,7 @@
   box-sizing: border-box;
 }
 
-/*การแสดงหน้าเลือก blox ใน Custom */
+/* การแสดงหน้าเลือก blox ใน Custom */
 .panelforCustom {
   background: #e0e0e0;
   border-radius: 18px;
@@ -240,7 +241,7 @@
   word-break: break-word;
 }
 
-/*การแสดงหน้าเลือก blox ใน Average */
+/* การแสดงหน้าเลือก blox ใน Average */
 .panelforAverage {
   background: #e0e0e0;
   border-radius: 18px;
@@ -278,7 +279,7 @@
 }
 
 .panelforAverage .average-blox.selected {
-  background: #d1e7dd; /* สีเมื่อเลือก */
+  background: #d1e7dd;
 }
 
 .action-btn {
@@ -303,10 +304,8 @@
 .stop-btn {
   background: #e74c3c;
 }
-.op-btn {
-  background: #fff3cd;
-  color: #000;
-}
+/* ⚠️ ลบ .op-btn ทั้งหมดแล้ว */
+
 .next-btn {
   background: #fff;
   color: #2d3a4b;
@@ -319,16 +318,16 @@
 .action-panel {
   font-size: 2.1rem;
   font-weight: bold;
-  background: #e0e0e0; /* ใช้สีเดียวพอ ไม่ต้องซ้ำ */
+  background: #e0e0e0;
   border-radius: 18px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-  padding: 14px 20px; /* เพิ่ม padding ซ้าย-ขวาให้ไม่ชิด */
-  margin: 16px auto; /* auto จะทำให้ไม่เต็มความกว้างและอยู่ตรงกลาง */
+  padding: 14px 20px;
+  margin: 16px auto;
   display: flex;
-  align-items: center; /* จัดแกน Y ให้อยู่กลาง */
-  justify-content: center; /* จัดแกน X ให้อยู่กลาง */
+  align-items: center;
+  justify-content: center;
   min-height: 35px;
-  max-width: 480px; /* กำหนดความกว้างสูงสุด */
+  max-width: 480px;
   gap: 1;
 }
 
@@ -364,13 +363,13 @@ body {
   letter-spacing: 0.08em;
 }
 
-/* ✅ เพิ่มใหม่สำหรับแบบที่ 3 */
+/* เพิ่มใหม่สำหรับแบบที่ 3 */
 .main-panel {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-height: 300px; /* พื้นที่เนื้อหาที่ scroll ได้ */
+  max-height: 300px;
   overflow-y: auto;
   padding-right: 4px;
   margin-bottom: 12px;
@@ -394,7 +393,7 @@ body {
   }
 }
 
-/* ปรับตัวอักษรเวลาหัวขอและชื่อ */
+/* ปรับตัวอักษรเวลาหัวข้อและชื่อ */
 @media (max-width: 500px) {
   .selected-blox-name,
   .elapsed-timer {
@@ -409,20 +408,19 @@ body {
   }
 }
 
-/* ปรับปุ่มต่างๆ */
+/* ปรับปุ่มต่างๆ — ⚠️ ลบ .op-btn ออกแล้ว */
 @media (max-width: 500px) {
   .start-btn,
   .stop-btn,
-  .op-btn,
   .next-btn {
     font-size: 13px;
-    padding: 7px 7px; /* แกน ซ้าย-ขวา */
-    padding-top: 15px; /* สูงขึ้นด้านบน */
-    padding-bottom: 15px; /* สูงขึ้นด้านล่าง */
+    padding: 7px 7px;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 }
 
-/* ปรับตัวอักษรblox */
+/* ปรับตัวอักษร blox */
 @media (max-width: 500px) {
   .panelforCustom .custom-blox,
   .panelforAverage .average-blox {
@@ -437,18 +435,18 @@ body {
   }
 }
 
-/* ✅ เพิ่ม media query สำหรับ mode-dialog บนหน้าจอเล็ก */
+/* เพิ่ม media query สำหรับ mode-dialog บนหน้าจอเล็ก */
 @media (max-width: 500px) {
   .mode-dialog {
-    flex-direction: column; /* จากแนวนอน → แนวตั้ง */
-    align-items: center; /* จัดกึ่งกลาง */
+    flex-direction: column;
+    align-items: center;
   }
   .mode-option {
-    width: 100%; /* ตัวเลือกเต็ม container */
+    width: 100%;
     max-width: 300px;
-    margin-bottom: 16px; /* เว้นระยะด้านล่าง */
+    margin-bottom: 16px;
   }
   .mode-option:last-child {
-    margin-bottom: 0; /* ตัวสุดท้ายไม่ต้องเว้น */
+    margin-bottom: 0;
   }
 }
