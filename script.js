@@ -56,13 +56,6 @@ function startMainTimer() {
   if (timerInterval) clearInterval(timerInterval);
   timerPaused = false;
 
-  const btnOp = document.getElementById("btn-op");
-  if (btnOp) {
-    btnOp.textContent = "Pause";
-    btnOp.style.backgroundColor = "#fff3cd"; // เหลืองอ่อน
-    btnOp.style.color = "#000"; // ตัวอักษรดำ
-  }
-
   timerInterval = setInterval(() => {
     if (!timerPaused) {
       if (mainTime > 0) {
@@ -108,15 +101,7 @@ function stopMainTimer() {
   }
   timerPaused = false;
 
-  const btnOp = document.getElementById("btn-op");
   const btnStop = document.getElementById("btn-stop");
-
-  // รีเซ็ตข้อความและสีของปุ่ม Pause (btnOp)
-  if (btnOp) {
-    btnOp.textContent = "Pause";
-    btnOp.style.backgroundColor = "#fff3cd"; // เหลืองอ่อน
-    btnOp.style.color = "#000"; // ตัวอักษรดำ
-  }
 
   // ปรับสีของปุ่ม Stop
   if (btnStop) {
@@ -132,7 +117,6 @@ function stopMainTimer() {
 function togglePauseMainTimer() {
   if (!timerInterval) return;
   timerPaused = !timerPaused;
-  const btnOp = document.getElementById("btn-op");
 
   if (btnOp) {
     btnOp.textContent = timerPaused ? "Continue" : "Pause";
@@ -863,8 +847,6 @@ document.addEventListener("DOMContentLoaded", function () {
       stopMainTimer();
       updateMainTimer(mainTime);
     });
-  const btnOp = document.getElementById("btn-op");
-  if (btnOp) btnOp.addEventListener("click", () => togglePauseMainTimer());
 
   // ปุ่ม Next — handler เดียว ดูแลทั้งโหมด custom และ average
   const btnNext = document.getElementById("btn-next");
