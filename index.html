@@ -8,10 +8,26 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- 🔹 หน้าต่างตั้งเวลา -->
+    <!-- หน้าต่าง เลือกโหมด -->
+    <div class="mode-overlay" id="mode-overlay">
+      <div class="mode-dialog">
+        <div class="mode-option left">
+          <div class="mode-title">Custom</div>
+          <div class="mode-desc">กำหนดหัวข้อและเวลาแต่ละหัวข้อเอง</div>
+          <button class="mode-select-btn" id="select-custom">เลือก</button>
+        </div>
+        <div class="mode-option right">
+          <div class="mode-title">Average</div>
+          <div class="mode-desc">กำหนดจำนวนข้อและเวลาต่อข้อเท่ากัน</div>
+          <button class="mode-select-btn" id="select-average">เลือก</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- หน้าต่าง ตั้งเวลา -->
     <div class="settime-overlay" id="settime-overlay" style="display: none">
       <div class="settime-dialog">
-        <!-- เวลา -->
+        <!-- Set time -->
         <div class="settime-row">
           <div class="settime-label">Time</div>
           <div class="settime-inputs">
@@ -51,14 +67,13 @@
               Set Action mode
             </div>
 
-            <!-- ✅ main-panel (ใหม่) -->
+            <!-- หน้าต่าง Set Actino ของ mode -->
             <div class="main-panel">
               <div class="set-actionmode-custom" id="set-actionmode-custom">
-                <!-- blox จะถูกสร้างโดย JS -->
+                <!-- Set ของ custom -->
               </div>
-
               <div class="set-actionmode-average" id="set-actionmode-average">
-                <!-- average inputs จะถูกสร้างโดย JS -->
+                <!-- Set ของ average -->
               </div>
             </div>
 
@@ -71,30 +86,14 @@
       </div>
     </div>
 
-    <!-- 🔹 หน้าต่างเลือกโหมด -->
-    <div class="mode-overlay" id="mode-overlay">
-      <div class="mode-dialog">
-        <div class="mode-option left">
-          <div class="mode-title">Custom</div>
-          <div class="mode-desc">กำหนดหัวข้อและเวลาแต่ละหัวข้อเอง</div>
-          <button class="mode-select-btn" id="select-custom">เลือก</button>
-        </div>
-        <div class="mode-option right">
-          <div class="mode-title">Average</div>
-          <div class="mode-desc">กำหนดจำนวนข้อและเวลาต่อข้อเท่ากัน</div>
-          <button class="mode-select-btn" id="select-average">เลือก</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- 🔹 ตัวจับเวลา -->
+    <!-- หน้าต่างหลัก ตัวแสดงเวลา -->
     <div class="timer-container">
       <div class="main-timer" id="main-timer">00 : 00 : 00</div>
       <div class="elapsed-timer" id="elapsed-timer">Elapsed: 00 : 00 : 00</div>
       <div class="selected-blox-name" id="selected-blox-name"></div>
     </div>
 
-    <!-- 🔹 ปุ่มควบคุม -->
+    <!-- หน้าต่างหลัก ตัวแสดงปุ่ม -->
     <div class="action-panel" id="action-panel">
       <button class="action-btn start-btn" id="btn-start">Start</button>
       <button class="action-btn stop-btn" id="btn-stop">Stop</button>
@@ -102,7 +101,7 @@
       <button class="action-btn next-btn" id="btn-next">Next</button>
     </div>
 
-    <!-- 🔹 ส่วนแสดงรายการ blox -->
+    <!-- หน้าต่างหลัก ตัวแสดง main-panel -->
     <div class="display-panel" id="display-panel">
       <div
         class="panelforCustom"
