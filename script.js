@@ -1,8 +1,7 @@
-// full JS (รวมการแก้ไขสำหรับ Average mode + timer + elapsed สำหรับ Average)
-// ----------------------------------------------------
+// JS V-7
 let mode = ""; // 'custom' หรือ 'average'
 let mainTime = 0; // เวลาหลัก (วินาที)
-let elapsedTime = 0; // เวลาย่อย
+let elapsedTime = 0; // เวลาของหัวข้อ
 let timerInterval = null;
 let timerPaused = false;
 let elapsedInterval = null;
@@ -85,7 +84,7 @@ function startMainTimer() {
     startAverageElapsedTimer();
   }
 
-  // ✅ ส่วนปรับสีปุ่ม Stop
+  //  ส่วนปรับสีปุ่ม Stop
   const btnStop = document.getElementById("btn-stop");
   if (btnStop) {
     btnStop.style.backgroundColor = "#e74c3c"; // แดง
@@ -93,7 +92,7 @@ function startMainTimer() {
   }
 }
 
-// แก้ไขอยู่ ขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขขข
+// ฟังก์ชัน การหยุดเวลา
 function stopMainTimer() {
   if (timerInterval) {
     clearInterval(timerInterval);
@@ -120,7 +119,7 @@ function togglePauseMainTimer() {
 
   if (btnOp) {
     btnOp.textContent = timerPaused ? "Continue" : "Pause";
-    // ✅ เพิ่มสีพื้นหลังตามสถานะ
+    //  เพิ่มสีพื้นหลังตามสถานะ
     if (timerPaused) {
       btnOp.style.backgroundColor = "#ffc107"; // เหลืองเข้ม (Continue)
       btnOp.style.color = "#000";
@@ -138,7 +137,7 @@ function togglePauseMainTimer() {
   }
 }
 
-// ฟังก์ชันจับเวลา elapsed ของ custom
+// ฟังก์ชัน จับเวลา elapsed ของ custom
 function startElapsedTimer() {
   pauseElapsedTimer();
   elapsedPaused = false;
@@ -225,6 +224,7 @@ function ensureAverageData() {
   }
 }
 
+// ฟังก์ชันตรวจสอบและควบคุม
 function startAverageTimer() {
   // หยุดของเดิมก่อน
   if (averageTimerInterval) clearInterval(averageTimerInterval);
@@ -267,7 +267,6 @@ function pauseAverageTimer() {
 
 // อัปเดตไฮไลต์ของบล็อก Average
 function updateAverageBloxHighlight(activeIdx) {
-  // activeIdx เป็น index ตาม averageData (0..n-1)
   averageData.forEach((item, idx) => {
     const el = document.getElementById(`avg-blox-${idx}`);
     if (el) {
@@ -294,7 +293,6 @@ function selectAverageBlox(idx) {
   const label = document.getElementById(`avg-elapsed-${idx}`);
   if (label) {
     const text = label.textContent || "";
-    // รองรับทั้งแบบ "HH:MM:SS" หรือ "ใช้ไป: HH:MM:SS"
     const match = text.match(/(\d{1,2}):(\d{1,2}):(\d{1,2})$/);
     if (match) {
       const h = parseInt(match[1]) || 0;
@@ -314,7 +312,7 @@ function selectAverageBlox(idx) {
   // render panel ใหม่
   renderAveragePanel();
 
-  // เริ่ม timer ใหม่หลัง DOM update สั้น ๆ
+  // เริ่ม timer ใหม่หลัง DOM update สั้นๆ
   setTimeout(() => {
     if (timerInterval && !timerPaused) startAverageTimer();
   }, 100);
@@ -361,10 +359,10 @@ function renderCustomPanel() {
     }
     const setSec = (topic.h || 0) * 3600 + (topic.m || 0) * 60 + (topic.s || 0);
     if (topic.elapsedSec > setSec && setSec > 0) {
-      blox.style.background = "#f8d7da"; // สีพื้นหลัง
-      blox.style.border = "1px solid #dc3545"; // สีขอบ
-      blox.style.color = "#721c24"; // สีตัวอักษร
-      blox.style.boxShadow = "0 2px 8px rgba(231,76,60,0.12)"; // เงาตามเดิม (ถ้าต้องการ)
+      blox.style.background = "#f8d7da";
+      blox.style.border = "1px solid #dc3545";
+      blox.style.color = "#721c24";
+      blox.style.boxShadow = "0 2px 8px rgba(231,76,60,0.12)";
     }
 
     // ข้อความชื่อ
@@ -435,7 +433,7 @@ function renderCustomEditPanel() {
       blox.style.alignItems = "center";
       blox.style.gap = "6px";
 
-      // name input (ยาวขึ้น)
+      // name input
       const nameInput = document.createElement("input");
       nameInput.type = "text";
       nameInput.placeholder = "ชื่อหัวข้อ";
@@ -540,8 +538,8 @@ function renderAveragePanel() {
   }
 
   panel.style.display = "flex";
-  panel.style.flexDirection = "column"; // ✅ จัดแนวเป็นแนวตั้ง
-  panel.style.gap = "6px"; // ✅ ระยะห่างระหว่างแถว
+  panel.style.flexDirection = "column";
+  panel.style.gap = "6px";
   avgDisplay.style.display = "block";
 
   // ------------------ จำนวนข้อ ------------------
@@ -558,7 +556,7 @@ function renderAveragePanel() {
   countInput.type = "number";
   countInput.min = 0;
   countInput.max = 999;
-  countInput.value = ""; // ✅ ช่องว่าง ไม่มี 0
+  countInput.value = "";
   countInput.placeholder = averageCount || "";
   countInput.onchange = (e) => {
     const val = parseInt(e.target.value) || 0;
@@ -571,7 +569,7 @@ function renderAveragePanel() {
   countRow.appendChild(countInput);
   panel.appendChild(countRow);
 
-  // ------------------ เวลาต่อข้อ (แก้เป็น 3 ช่อง H:M:S) ------------------
+  // ------------------ เวลาต่อข้อ ------------------
   const timeRow = document.createElement("div");
   timeRow.style.display = "flex";
   timeRow.style.alignItems = "center";
@@ -591,10 +589,8 @@ function renderAveragePanel() {
   hInput.style.width = "60px";
   hInput.onchange = (e) => {
     averageH = parseInt(e.target.value) || 0;
-    // validate minutes/seconds range not needed here, but cap negatives
     averageM = Math.max(0, averageM || 0);
     averageS = Math.max(0, averageS || 0);
-    // sync to data
     const total =
       (averageH || 0) * 3600 + (averageM || 0) * 60 + (averageS || 0);
     averageData.forEach((item) => (item.total = total));
@@ -671,7 +667,7 @@ function renderAveragePanel() {
   summary.style.fontWeight = "bold";
   avgDisplay.insertBefore(summary, document.getElementById("PanelinAverage"));
 
-  // ------------------ PanelinAverage ------------------
+  // ------------------ Panel in Average ------------------
   let bloxContainer = document.getElementById("PanelinAverage");
   bloxContainer.style.display = "flex";
   bloxContainer.style.flexWrap = "wrap";
@@ -778,7 +774,6 @@ function showPanelByMode() {
     renderCustomPanel();
   } else if (mode === "average") {
     ensureAverageData();
-    // reset openedBlox so first one is visible
     if (openedBlox.length === 0 && averageData.length > 0) openedBlox = [0];
     currentBloxIdx = 1;
     renderAveragePanel();
@@ -800,7 +795,7 @@ function showSetTimeDialog() {
   if (el) el.style.display = "flex";
 }
 
-// ------------------ DOMContentLoaded และการผูก event ครบทุกอย่าง ------------------
+// ------------------ DOMContentLoaded และการผูก event ------------------
 document.addEventListener("DOMContentLoaded", function () {
   const overlay = document.getElementById("mode-overlay");
   const selectCustom = document.getElementById("select-custom");
@@ -848,12 +843,12 @@ document.addEventListener("DOMContentLoaded", function () {
       updateMainTimer(mainTime);
     });
 
-  // ปุ่ม Next — handler เดียว ดูแลทั้งโหมด custom และ average
+  // ปุ่ม Next  custom และ average
   const btnNext = document.getElementById("btn-next");
   if (btnNext) {
     // ถ้ามี listener เก่า (rare) จะไม่ผูกซ้ำด้วย addEventListener เดิม ๆ ใน DOMContentLoaded
     btnNext.addEventListener("click", () => {
-      // Custom mode behavior
+      // ปุ่ม Next กับ custom
       if (mode === "custom") {
         if (customTopics.length === 0) return;
         let idx = selectedCustomIdx < 0 ? 0 : selectedCustomIdx;
@@ -885,7 +880,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      // Average mode behavior
+      // ปุ่ม Next กับ average
       if (mode === "average") {
         if (!averageData || averageData.length === 0) return;
         // guard: หาก currentBloxIdx เกินจะไม่ทำอะไร
@@ -904,18 +899,6 @@ document.addEventListener("DOMContentLoaded", function () {
         currentBloxIdx += 1;
         return;
       }
-
-      // หาก mode อื่นๆ -> ไม่ทำอะไร
     });
   }
 });
-
-// ตรวจสอบข้อมูล (ตัวอย่างการ debug ข้อมูล - ปิดเมื่อใช้จริง)
-// ตัวอย่างการเริ่มทดสอบ:
-// mode = "average";
-// averageCount = 3;
-// averageH = 0; averageM = 0; averageS = 10;
-// ensureAverageData();
-// renderAveragePanel();
-// startAverageTimer();
-//set Custom เลยจอ
