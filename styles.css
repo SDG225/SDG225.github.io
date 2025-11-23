@@ -1,4 +1,3 @@
-/* ช่องแสดงชื่อ blox ที่เลือกใน timer-container */
 .selected-blox-name {
   font-size: 1.18rem;
   color: #2d3a4b;
@@ -9,6 +8,7 @@
   min-height: 24px;
   width: 100%;
 }
+
 .set-actionmode-custom {
   display: flex;
   flex-direction: row;
@@ -36,6 +36,7 @@
   position: relative;
   margin-bottom: 8px;
 }
+
 .custom-blox input {
   width: 48px;
   font-size: 1rem;
@@ -44,6 +45,7 @@
   border-radius: 6px;
   text-align: center;
 }
+
 .custom-blox .blox-name {
   width: 80px;
   font-size: 1rem;
@@ -52,6 +54,7 @@
   border-radius: 6px;
   text-align: left;
 }
+
 .custom-blox .blox-remove {
   background: #e74c3c;
   color: #fff;
@@ -62,6 +65,7 @@
   cursor: pointer;
   margin-left: 8px;
 }
+
 .custom-blox .blox-add {
   background: #2ecc40;
   color: #fff;
@@ -72,6 +76,7 @@
   cursor: pointer;
   margin-left: 8px;
 }
+
 .settime-overlay {
   position: fixed;
   top: 0;
@@ -84,6 +89,7 @@
   justify-content: center;
   z-index: 1001;
 }
+
 .settime-dialog {
   background: #fff;
   border-radius: 20px;
@@ -94,6 +100,7 @@
   flex-direction: column;
   align-items: center;
 }
+
 .settime-row {
   display: flex;
   align-items: center;
@@ -101,16 +108,19 @@
   width: 100%;
   justify-content: space-between;
 }
+
 .settime-label {
   font-size: 1.2rem;
   font-weight: bold;
   color: #2d3a4b;
   margin-right: 18px;
 }
+
 .settime-inputs {
   display: flex;
   align-items: center;
 }
+
 .settime-input {
   width: 38px;
   font-size: 1.3rem;
@@ -121,11 +131,13 @@
   margin: 0 4px;
   background: #f7f7f7;
 }
+
 .settime-sep {
   font-size: 1.3rem;
   color: #888;
   margin: 0 2px;
 }
+
 .settime-actionmode {
   font-size: 1rem;
   color: #aaa;
@@ -164,18 +176,21 @@
   align-items: center;
   justify-content: flex-start;
 }
+
 .mode-title {
   font-size: 1.6rem;
   font-weight: bold;
   margin-bottom: 8px;
   color: #2d3a4b;
 }
+
 .mode-desc {
   font-size: 1rem;
   color: #666;
   margin-bottom: 18px;
   text-align: center;
 }
+
 .mode-select-btn {
   font-size: 1.1rem;
   font-weight: bold;
@@ -188,11 +203,11 @@
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
   transition: background 0.2s;
 }
+
 .mode-select-btn:active {
   filter: brightness(0.92);
 }
 
-/* display-panel styles remain for outer container */
 .display-panel {
   font-size: 1.4rem;
   font-weight: bold;
@@ -363,7 +378,6 @@ body {
   letter-spacing: 0.08em;
 }
 
-/* เพิ่มใหม่สำหรับแบบที่ 3 */
 .main-panel {
   display: flex;
   flex-direction: column;
@@ -375,6 +389,7 @@ body {
   margin-bottom: 12px;
   box-sizing: border-box;
 }
+
 .setactionmode-settime {
   display: flex;
   justify-content: center;
@@ -385,7 +400,7 @@ body {
   padding-top: 8px;
 }
 
-/* ปรับแกนเวลาและเวลาหลัก */
+/* ปรับตัวเวลาหลัก */
 @media (max-width: 500px) {
   .timer-container,
   .main-timer {
@@ -408,7 +423,7 @@ body {
   }
 }
 
-/* ปรับปุ่มต่างๆ — ⚠️ ลบ .op-btn ออกแล้ว */
+/* ปรับปุ่มต่างๆ */
 @media (max-width: 500px) {
   .start-btn,
   .stop-btn,
@@ -420,7 +435,7 @@ body {
   }
 }
 
-/* ปรับตัวอักษร blox */
+/* ปรับตัวอักษร blox ใน main-panel */
 @media (max-width: 500px) {
   .panelforCustom .custom-blox,
   .panelforAverage .average-blox {
